@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link as LinkScroll } from 'react-scroll';
 import clsx from 'clsx';
 
-const NavLink = ({ title }) => (
-  <LinkScroll className='base-bold text-p4 uppercase transition-colors duration-700 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5'>
-  {title}
-  </LinkScroll>
-)
-
 const Header = () => {
   const [isOpen, setOpen] = useState(false)
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -22,6 +16,21 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
      }
   }, [])
+
+  const NavLink = ({ title }) => (
+    <LinkScroll 
+          className='base-bold text-p4 uppercase transition-colors duration-700 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h-5'
+          onClick={() => setOpen(false)}
+          to={title}
+          offset={-100}
+          spy
+          smooth
+          activeClass="nav-active"
+          >
+    {title}
+    </LinkScroll>
+  )
+
   return (
     <header className={clsx('fixed top-0 left-0 z-50 w-full py-10 transition-all duration-500 max-lg:py-4', hasScrolled && "py-2 bg-black-100 backdrop-blur-[8px]")}>
         <div className='container flex h-14 items-center max-lg:px-5'>
@@ -40,7 +49,7 @@ const Header = () => {
                <li className='nav-logo'>
                 <LinkScroll
                    to="hero"
-                   offset={-100}
+                   offset={-250}
                    spy
                    smooth
                    className={clsx("max-lg:hidden transition-transform duration-500 cursor-pointer")}>
