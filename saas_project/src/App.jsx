@@ -4,6 +4,7 @@ import './App.css'
 
 import Header from './sections/Header'
 import Hero from './sections/Hero'
+import Features from './sections/Features'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <main className="overflow-hidden">
       <Header />
       <Hero />
+      <Features />
     </main>
   )
 }
