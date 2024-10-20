@@ -2,6 +2,8 @@ import React, { useState} from 'react'
 import { Element } from 'react-scroll'
 import { clsx } from "clsx";
 
+import { plans } from "../constants"
+
 const Pricing = () => {
     const [monthly, setMonthly] = useState(false)
     console.log(monthly)
@@ -32,6 +34,14 @@ const Pricing = () => {
                               alt="outline"
                               className='absolute inset-0 opacity-5 mix-blend-soft-light' />
                        </div>
+                    </div>
+                    <div className='scroll-hide relative z-2 -mt-12 flex items-start max-xl:gap-5 max-xl:overflow-auto max-xl:pt-6'>
+                     {plans.map((plan, index) => (
+                      <div key={plan.id}
+                           className=''>
+                       {plan.title}
+                      </div>
+                     ))}
                     </div>
                 </div>
         </Element>
